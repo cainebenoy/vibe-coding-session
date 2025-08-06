@@ -1,0 +1,47 @@
+:root {
+    --primary-color: #b86614;
+    --secondary-color: #d9c9b3;
+    --background-color: #6b4f3a; 
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #e6b8af;
+    --junk-cable: #5a5a5a;
+    --junk-paperclip: #a67c52;
+    --junk-die: #f0f0f0;
+    --junk-key: #b8860b;
+    --junk-battery: #d2691e;
+    --notepad-paper: #f5f5dc;
+    --notepad-lines: #cdd6dd;
+}
+
+body {
+    font-family: 'Special Elite', cursive;
+    background-color: var(--background-color);
+    /* This SVG creates the wood grain texture */
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22wood%22%20patternUnits%3D%22userSpaceOnUse%22%20width%3D%22150%22%20height%3D%22150%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22%235c4033%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%238b5a2b%22/%3E%3Cpath%20d%3D%22M0%2C25%20Q25%2C20%2050%2C25%20T100%2C25%22%20stroke%3D%22%235c4033%22%20stroke-width%3D%223%22%20fill%3D%22none%22/%3E%3Cpath%20d%3D%22M0%2C50%20Q25%2C45%2050%2C50%20T100%2C50%22%20stroke%3D%22%235c4033%22%20stroke-width%3D%224%22%20fill%3D%22none%22/%3E%3Cpath%20d%3D%22M0%2C75%20Q25%2C70%2050%2C75%20T100%2C75%22%20stroke%3D%22%235c4033%22%20stroke-width%3D%222%22%20fill%3D%22none%22/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%23wood)%22/%3E%3C/svg%3E');
+}
+
+.font-scribble {
+    font-family: 'Kalam', cursive;
+}
+
+.notepad {
+    background-color: var(--notepad-paper);
+    background-image: repeating-linear-gradient(var(--notepad-paper) 0px, var(--notepad-paper) 23px, var(--notepad-lines) 24px);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Styles for the "unclickable button" project */
+.unclickable-button {
+    position: absolute;
+    z-index: 50;
+    font-family: 'Special Elite', cursive;
+    padding: 0.5rem 1rem;
+    background-color: #b86614;
+    color: white;
+    border: 2px solid #5c4033;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    transition: all 0.1s linear;
+}

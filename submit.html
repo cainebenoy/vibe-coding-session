@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Internet's Junk Drawer - Submit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Rock+Salt&display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --primary-color: #8B4513; --secondary-color: #f5f5dc; --background-color: #a0522d; --text-primary: #3a3a3a; --text-secondary: #5a5a5a; --accent-color: #ff4500;
+            }
+        }
+        body {
+            font-family: 'Special Elite', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            background-color: var(--background-color);
+        }
+        .handwritten {
+            font-family: 'Rock Salt', cursive;
+            color: #4a4a4a;
+        }
+        .notepad-form {
+            background-image: url('https://www.transparenttextures.com/patterns/lined-paper.png');
+            background-color: var(--secondary-color);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            border-radius: 3px;
+            padding: 2rem;
+            position: relative;
+            transform: rotate(-2deg);
+        }
+        .form-input-custom {
+            background: transparent; border: none; border-bottom: 2px dotted var(--text-secondary); border-radius: 0; font-family: 'Special Elite', cursive; color: var(--text-primary);
+        }
+        .form-input-custom:focus {
+            outline: none; box-shadow: none; border-bottom: 2px dotted var(--text-primary);
+        }
+        .form-input-custom::placeholder {
+            color: var(--text-secondary); opacity: 0.8;
+        }
+        .crumpled-button {
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='60' viewBox='0 0 200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='crumple'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' seed='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='8'/%3E%3C/filter%3E%3Crect width='200' height='60' fill='%23f5f5dc' filter='url(%23crumple)'/%3E%3C/svg%3E");
+            background-size: cover; border: none; padding: 1rem 2rem; transition: transform 0.2s; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer; /* Makes it look clickable */
+        }
+        .crumpled-button:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+    </style>
+</head>
+<body class="bg-[var(--background-color)] min-h-screen p-4 sm:p-6 lg:p-8">
+
+<div class="w-full max-w-lg mx-auto space-y-12">
+    <main class="relative z-20">
+        <div class="notepad-form">
+            <h1 class="handwritten text-3xl text-center mb-4 text-[var(--text-primary)]">Submit Your Useless Project</h1>
+            
+            <div id="contribution-form">
+                <div class="text-center text-sm text-[var(--text-secondary)] mb-6 p-2 bg-black/5 rounded">
+                    <p>Want to add your idea? Fork this project on GitHub, add your idea to the "Hall of Fame" below in this file, and open a pull request!</p>
+                </div>
+
+                <form class="space-y-8">
+                    <div class="relative"><label class="handwritten absolute -top-4 -left-4 text-lg text-[var(--text-secondary)] bg-[var(--secondary-color)] px-1 transform -rotate-6" for="project-title">Title:</label><input class="form-input-custom w-full p-2 text-lg" id="project-title" name="project-title" placeholder="e.g., A sock-sorting robot that only sorts one pair" type="text"/></div>
+                    <div class="relative mt-8"><label class="handwritten absolute -top-4 right-0 text-lg text-[var(--text-secondary)] bg-[var(--secondary-color)] px-1 transform rotate-3" for="project-description">Description:</label><textarea class="form-input-custom w-full p-2 text-lg" id="project-description" name="project-description" placeholder="Tell us about its glorious uselessness..." rows="4"></textarea></div>
+                    <div class="text-center pt-4">
+                        <div id="fake-submit-button" class="crumpled-button inline-block"><span class="handwritten text-2xl text-[var(--text-primary)]">Submit</span></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <section class="relative z-10">
+        <h2 class="handwritten text-4xl text-center text-white/90 mb-8 [text-shadow:2px_2px_4px_#0005]">The Hall of Useless Fame</h2>
+        <div class="space-y-8">
+            <div class="bg-[#fdfbe9] p-6 rounded-sm shadow-lg transform -rotate-1 border-2 border-black/10">
+                <h3 class="handwritten text-2xl text-amber-900 border-b-2 border-dotted border-amber-900/30 pb-2 mb-3">Philosophical Weather App</h3>
+                <p class="text-lg">An app that gives you weather reports like "A chance of existential dread this afternoon" or "Partly cloudy with a lingering sense of ennui."</p>
+            </div>
+            <div class="bg-[#fdfbe9] p-6 rounded-sm shadow-lg transform rotate-2 border-2 border-black/10">
+                <h3 class="handwritten text-2xl text-amber-900 border-b-2 border-dotted border-amber-900/30 pb-2 mb-3">A To-Don't List</h3>
+                <p class="text-lg">A to-do list where you add things you *don't* want to do. When you "complete" an item by not doing it, it gets crossed off. Satisfyingly useless.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    const fakeButton = document.getElementById('fake-submit-button');
+    const formContainer = document.getElementById('contribution-form');
+
+    fakeButton.addEventListener('click', () => {
+        formContainer.innerHTML = `
+            <div class="text-center p-8">
+                <h2 class="handwritten text-3xl text-amber-900">Thanks!</h2>
+                <p class="text-lg mt-4">To get your idea officially added, please edit the \`submit.html\` file directly and open a pull request on GitHub.</p>
+                <p class="text-sm mt-4 text-[var(--text-secondary)]">This form is just for show... obviously.</p>
+            </div>
+        `;
+    });
+</script>
+
+</body></html>

@@ -1,162 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovateX - Sustainable Technology Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Internet's Junk Drawer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Keeping minimal styles here that are highly specific or dynamic */
-        .hero-bg {
-            background-color: #f0f9ff; /* A light blue background */
-        }
-    </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="text-[var(--text-primary)] min-h-screen flex items-center justify-center p-4">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">InnovateX</a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden flex items-center">
-                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+    <div class="w-full max-w-4xl h-[600px] bg-[var(--secondary-color)] rounded-lg shadow-2xl relative p-8 border-4 border-[#5c4033] overflow-hidden">
+        
+        <div class="absolute top-10 left-12 w-32 h-16 -rotate-12 transform"> <svg class="w-full h-full" viewBox="0 0 100 50"><path d="M 10,25 C 20,0 80,0 90,25" fill="none" stroke="var(--junk-cable)" stroke-width="4"></path><path d="M 15,25 C 25,50 75,50 85,25" fill="none" stroke="var(--junk-cable)" stroke-width="4"></path><path d="M 50,5 C 40,25 60,25 50,45" fill="none" opacity="0.6" stroke="var(--junk-cable)" stroke-width="3"></path></svg></div>
+        <div class="absolute bottom-16 right-20 w-8 h-16 bg-[var(--junk-paperclip)] rounded-md transform rotate-12 shadow-md"></div>
+        <div class="absolute top-1/2 left-10 w-10 h-10 bg-[var(--junk-die)] rounded-md shadow-lg flex items-center justify-center transform -rotate-15"><div class="grid grid-cols-3 gap-1 p-1"><span class="w-1.5 h-1.5 bg-black rounded-full col-start-1"></span><span class="w-1.5 h-1.5 bg-black rounded-full col-start-3"></span><span class="w-1.5 h-1.5 bg-black rounded-full col-start-2 row-start-2"></span><span class="w-1.5 h-1.5 bg-black rounded-full col-start-1 row-start-3"></span><span class="w-1.5 h-1.5 bg-black rounded-full col-start-3 row-start-3"></span></div></div>
+        <div class="absolute top-20 right-16 w-24 h-10 transform rotate-45"><div class="w-6 h-6 bg-[var(--junk-key)] rounded-full absolute top-2 left-0"></div><div class="w-16 h-2 bg-[var(--junk-key)] absolute top-[18px] left-3"></div><div class="w-1 h-3 bg-[var(--junk-key)] absolute top-[26px] left-12"></div><div class="w-1 h-3 bg-[var(--junk-key)] absolute top-[26px] left-16"></div></div>
+        <div class="absolute bottom-10 left-1/4 w-6 h-12 bg-gradient-to-b from-[#e5732e] to-[var(--junk-battery)] rounded-t-sm rounded-b-md shadow-md flex flex-col items-center"><div class="w-3 h-1 bg-zinc-400"></div><p class="text-white text-[8px] font-bold mt-2">AA</p></div>
+        <div class="absolute top-4 right-4 font-scribble text-[var(--text-secondary)] text-sm rotate-3"><p>Don't forget!</p></div>
+        
+        <div class="relative z-10 w-3/5 h-4/5 mx-auto my-auto flex items-center justify-center notepad p-8 transform rotate-[-2deg]">
+            <div class="absolute top-4 left-4 w-4 h-8 bg-red-500 opacity-30" style="clip-path: polygon(0 0, 100% 0, 0 100%);"></div>
+            <div id="project-area" class="w-full h-full flex flex-col items-center justify-center text-center"></div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-100">Home</a>
-            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100">About</a>
-            <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-100">Services</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100">Contact</a>
-        </div>
-    </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-bg">
-            <div class="container mx-auto px-6 py-24 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Pioneering a Sustainable Future</h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">InnovateX delivers cutting-edge technology solutions that empower businesses and protect our planet.</p>
-                <a href="#services" class="mt-8 inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Discover Our Solutions</a>
-            </div>
-        </section>
+        <a href="submit.html" class="absolute bottom-6 right-5 z-20 p-3 bg-amber-100 shadow-lg transform rotate-3 hover:rotate-0 hover:scale-105 transition-transform font-scribble text-slate-800 text-sm no-underline leading-tight text-center">
+            Got a useless idea?<br>Submit it!
+        </a>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">About InnovateX</h2>
-                    <p class="mt-2 text-gray-600">Our Mission, Vision, and Values</p>
-                </div>
-                <div class="flex flex-wrap items-center">
-                    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
-                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Our+Team" alt="InnovateX Team" class="rounded-lg shadow-xl w-full h-auto">
-                    </div>
-                    <div class="w-full md:w-1/2 px-4">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Driving Progress Through Innovation</h3>
-                        <p class="text-gray-600 mb-4">At InnovateX, we believe that technology holds the key to solving the world's most pressing environmental challenges. Our team of experts is dedicated to developing and deploying solutions that are not only efficient and profitable but also environmentally responsible.</p>
-                        <p class="text-gray-600">We are committed to a circular economy, minimizing waste, and maximizing resource efficiency in everything we do. Our goal is to create a lasting positive impact for our clients, our communities, and our planet.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    </div>
 
-        <!-- Services Section -->
-        <section id="services" class="bg-gray-50 py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Services</h2>
-                    <p class="mt-2 text-gray-600">Solutions for a Greener Tomorrow</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md text-center service-card">
-                        <div class="mb-4 inline-block p-4 bg-blue-100 rounded-full">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Renewable Energy Integration</h3>
-                        <p class="text-gray-600">We provide seamless integration of solar, wind, and other renewable energy sources into your existing infrastructure.</p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md text-center service-card">
-                         <div class="mb-4 inline-block p-4 bg-blue-100 rounded-full">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0117.657 18.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Smart Water Management</h3>
-                        <p class="text-gray-600">Our IoT-based solutions optimize water usage, detect leaks, and ensure efficient water distribution for cities and agriculture.</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md text-center service-card">
-                         <div class="mb-4 inline-block p-4 bg-blue-100 rounded-full">
-                           <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Sustainable Building Tech</h3>
-                        <p class="text-gray-600">Transform your buildings into eco-friendly, energy-efficient structures with our smart automation and green materials.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Contact Us</h2>
-                    <p class="mt-2 text-gray-600">Let's build a sustainable future together.</p>
-                </div>
-                <div class="max-w-2xl mx-auto">
-                    <form id="contact-form" class="bg-white p-8 rounded-lg shadow-lg">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="How can we help you?" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Send Message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                 <a href="#" class="hover:text-blue-400 transition duration-300">Facebook</a>
-                 <a href="#" class="hover:text-blue-400 transition duration-300">Twitter</a>
-                 <a href="#" class="hover:text-blue-400 transition duration-300">LinkedIn</a>
-            </div>
-            <p>&copy; 2025 InnovateX. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" title="Go to top">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
-    </button>
-
-    <!-- Link to external JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
