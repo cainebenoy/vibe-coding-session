@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         () => {
             projectArea.innerHTML = `
                 <h2 class="text-2xl font-scribble mb-2">My Pet Rock</h2>
-                <img src="ChatGPT Image Aug 6, 2025, 10_45_13 AM.png" alt="A cartoon pet rock" class="h-32">
+                <img src="rock.png" alt="A cartoon pet rock" class="h-32">
                 <p class="mt-4 text-lg">It's a great listener.</p>
             `;
         },
@@ -101,10 +101,28 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             const input = document.getElementById('meow-input');
             const output = document.getElementById('meow-output');
-            input.oninput = () => {
-                const meows = input.value.split('').map(() => "meow ").join('');
+            // Load all meow sound files
+            const meowSounds = [
+                'cat-meow/real-cat-sound-effect-383821.mp3',
+                'cat-meow/cat-meow-sound-383823.mp3',
+                'cat-meow/cat-meow-85175.mp3',
+                'cat-meow/cat-meow-8-fx-306184.mp3',
+                'cat-meow/cat-meow-7-fx-306186.mp3',
+                'cat-meow/cat-meow-6226.mp3',
+                'cat-meow/cat-meow-297927.mp3',
+                'cat-meow/cat-meow-1-fx-306178.mp3'
+            ];
+            // Restore letter-based meow logic
+            input.addEventListener('input', (e) => {
+                const meows = input.value.split('').map(() => 'meow ').join('');
                 output.textContent = meows;
-            };
+                if (e.data) {
+                    for (let i = 0; i < e.data.length; i++) {
+                        const rnd = Math.floor(Math.random() * meowSounds.length);
+                        new Audio(meowSounds[rnd]).play();
+                    }
+                }
+            });
         },
 
         // Project 10: The Beige Page (FIXED)
