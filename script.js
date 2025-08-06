@@ -142,6 +142,132 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-6xl font-mono mt-4">${hex}</p>
             `;
         },
+
+        // Project 11: Digital Bubble Wrap
+        () => {
+            projectArea.innerHTML = `
+                <h2 class="text-2xl font-scribble mb-2">Digital Bubble Wrap</h2>
+                <div id="bubble-wrap" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;"></div>
+            `;
+            const wrap = document.getElementById('bubble-wrap');
+            // Load all bubble pop sound files
+            const popSounds = [
+                'bubble-pop/bubble-sound-43207.mp3',
+                'bubble-pop/bubble-pop-283674.mp3',
+                'bubble-pop/bubble-pop-06-351337.mp3',
+                'bubble-pop/bubble-pop-05-323639.mp3',
+                'bubble-pop/bubble-pop-04-323580.mp3',
+                'bubble-pop/bubble-pop-02-293341.mp3'
+            ];
+            for(let i=0;i<100;i++){
+                const bubble = document.createElement('div');
+                Object.assign(bubble.style,{width:'30px',height:'30px',borderRadius:'50%',background:'#c0e4ff',cursor:'pointer'});
+                bubble.onclick = () => {
+                    // Play a random pop sound
+                    const rnd = Math.floor(Math.random() * popSounds.length);
+                    new Audio(popSounds[rnd]).play();
+                    bubble.style.visibility='hidden';
+                };
+                wrap.appendChild(bubble);
+            }
+        },
+        // Project 12: Is the Internet On?
+        () => { projectArea.innerHTML = `<h1 class="text-6xl font-bold text-green-600">YES</h1>`; },
+        // Project 13: Life Progress Bar
+        () => {
+            projectArea.innerHTML = `
+                <h2 class="text-2xl mb-2">Life Progress Bar</h2>
+                <input type="date" id="birth-date" class="border p-1" />
+                <button id="life-btn" class="ml-2 p-1 bg-blue-500 text-white">Calculate</button>
+                <div id="life-bar" class="mt-4 w-full h-6 bg-gray-300"><div id="life-fill" class="h-6 bg-green-500" style="width:0%"></div></div>
+                <p id="life-percent" class="mt-2 text-lg"></p>
+            `;
+            document.getElementById('life-btn').onclick = () => {
+                const birth = new Date(document.getElementById('birth-date').value);
+                if(isNaN(birth)) return;
+                const now = new Date();
+                const daysAlive = (now - birth)/(1000*60*60*24);
+                const percent = Math.min(100,(daysAlive/(80*365))*100).toFixed(1);
+                document.getElementById('life-fill').style.width = percent + '%';
+                document.getElementById('life-percent').textContent = percent + '% of average life';
+            };
+        },
+        // Project 14: Scream Into the Void
+        () => {
+            projectArea.innerHTML = `
+                <h2 class="text-2xl mb-2">Scream Into the Void</h2>
+                <textarea id="void-text" class="w-full h-24 border"></textarea>
+                <button id="scream-btn" class="mt-2 p-1 bg-red-500 text-white">Scream</button>
+            `;
+            const txt = document.getElementById('void-text');
+            document.getElementById('scream-btn').onclick = () => {
+                txt.style.transition = 'opacity 1s, transform 1s';
+                txt.style.opacity = 0;
+                txt.style.transform = 'scale(0)';
+                setTimeout(() => { txt.value = ''; txt.style.opacity = 1; txt.style.transform = 'scale(1)'; }, 1000);
+            };
+        },
+        // Project 15: "Should I...?" Decider
+        () => {
+            projectArea.innerHTML = `
+                <h2 class="text-2xl mb-2">Should I...?</h2>
+                <input type="text" id="should-input" class="border p-1" placeholder="Ask your question..." />
+                <button id="should-btn" class="ml-2 p-1 bg-gray-700 text-white">Decide</button>
+                <p id="should-answer" class="mt-2 text-xl font-bold"></p>
+            `;
+            document.getElementById('should-btn').onclick = () => {
+                document.getElementById('should-answer').textContent = 'Maybe.';
+            };
+        },
+        // Project 16: Cat on Keyboard Simulator
+        () => {
+            projectArea.innerHTML = `
+                <h2 class="text-2xl mb-2">Cat on Keyboard</h2>
+                <textarea id="cat-keyboard" class="w-full h-24 border" readonly></textarea>
+            `;
+            const area = document.getElementById('cat-keyboard');
+            setInterval(() => {
+                const chars = 'asdfghjklqwertyuiopzxcvbnm';
+                let str = '';
+                for(let i=0;i<5;i++) str += chars.charAt(Math.floor(Math.random()*chars.length));
+                area.value += str;
+            }, 500 + Math.random()*1500);
+        },
+        // Project 17: The Deceptive Font
+        () => {
+            projectArea.innerHTML = `<h2 class="text-2xl">This page is elegantly set in Helvetica.</h2>`;
+            document.body.style.fontFamily = 'Comic Sans MS, cursive';
+        },
+        // Project 18: Where's My Cursor?
+        () => {
+            projectArea.innerHTML = `<button id="hide-cursor" class="p-2 bg-black text-white">Find My Cursor</button>`;
+            document.getElementById('hide-cursor').onclick = () => {
+                document.body.style.cursor = 'none';
+                setTimeout(() => { document.body.style.cursor = 'auto'; }, 5000);
+            };
+        },
+        // Project 19: Infinitely Agreeing Checkbox
+        () => {
+            projectArea.innerHTML = `<div id="agree-wrap"></div>`;
+            const wrap = document.getElementById('agree-wrap');
+            function addCheckbox() {
+                const label = document.createElement('label');
+                const cb = document.createElement('input'); cb.type = 'checkbox';
+                label.append(cb, ' I understand and agree.');
+                wrap.appendChild(label);
+                cb.onchange = () => addCheckbox();
+            }
+            addCheckbox();
+        },
+        // Project 20: Button That Slowly Fades
+        () => {
+            projectArea.innerHTML = `<button id="fade-btn" class="p-2 bg-blue-600 text-white">Hover to Fade</button>`;
+            const btn = document.getElementById('fade-btn');
+            btn.onmouseover = () => {
+                btn.style.transition = 'opacity 10s';
+                btn.style.opacity = 0;
+            };
+        }
     ];
 
     // Pick a random project and run it
